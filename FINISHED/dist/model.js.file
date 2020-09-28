@@ -1,0 +1,178 @@
+// models
+
+$.animista(
+	{
+		'.selector1':
+		{
+			name: 'anime-name',
+			dur: 'anime-dur',
+			dly: 'anime-dly',
+			repeat: 'anime-repeat'
+		},
+
+		'.selector2,.selector3':
+		{
+			click: { name: 'anime-name', dur: 'anime-dur' },
+			hover:
+			{
+				in: { name: 'anime-name', dur: 'anime-dur' },
+				out: { name: 'anime-name', dur: 'anime-dur' }
+			}
+		},
+
+		'.selector4':
+		{
+			click:
+			{
+				in: { rand:
+				[
+					{ name: 'anime-name-1', dur: 'anime-dur' },
+					{ name: 'anime-name-2', dur: 'anime-dur' },
+					{ name: 'anime-name-3', dur: 'anime-dur' },
+					{ name: 'anime-name-4', dur: 'anime-dur' }
+				]},
+				out: { chain:
+				[
+					{ name: 'anime-name-1', dur: 'anime-dur' },
+					{ name: 'anime-name-2', dur: 'anime-dur' },
+					{ name: 'anime-name-3', dur: 'anime-dur' },
+					{ name: 'anime-name-4', dur: 'anime-dur' }
+				]}
+			},
+			hover: { rand:
+			[
+				{ name: 'anime-name-1', dur: 'anime-dur' },
+				{ name: 'anime-name-2', dur: 'anime-dur' },
+				{ name: 'anime-name-3', dur: 'anime-dur' },
+				{ name: 'anime-name-4', dur: 'anime-dur' }
+			]}
+		}
+	});
+
+/**########################
+ * 			OR
+ #########################*/
+
+ $('.selector1, .selector2').animista.on('click', {
+	in: { name: 'anime-name', dur: 'anime-dur' },
+	out: { name: 'anime-name', dur: 'anime-dur' }
+});
+$('.selector3').animista.on('click', { rand:
+	[
+		{ name: 'anime-name-1', dur: 'anime-dur' },
+		{ name: 'anime-name-2', dur: 'anime-dur' },
+		{ name: 'anime-name-3', dur: 'anime-dur' },
+		{ name: 'anime-name-4', dur: 'anime-dur' }
+	]
+});
+$('.selector4').animista.on('click', { name: 'anime-name', dur: 'anime-dur' });
+$('.selector5').animista.click(
+	{
+		in: { name: 'anime-name', dur: 'anime-dur' },
+		out: { name: 'anime-name', dur: 'anime-dur' }
+	});
+$('.selector6').animista.click(
+	{name: 'anime-name', dur: 'anime-dur' },
+	{ name: 'anime-name', dur: 'anime-dur' }
+);
+
+// ---------------- OR -----------------------
+$('.selector7').animista({ name: 'anime-name', dur: 'anime-dur' }).on('click');
+$.animista(
+	{
+		'.selector1, .selector2, .selector3':
+		{
+			name: 'anime-name',
+			dur: 'anime-dur'
+		}
+	}).on('click');
+// ---------------- OR -----------------------
+$('.selector1').animista.click({ '.selector2': { name: 'anime-name', dur: 'anime-dur' } });
+$('.selector1').animista.click({ name: 'anime-name', dur: 'anime-dur' }).then({
+	'.selector2': { name: 'anime-name', dur: 'anime-dur' }
+});
+
+/**########################
+ * 			OR
+ #########################*/
+
+ $('.selector1').animista.random(
+	[
+		{ name: 'anime-name-1', dur: 'anime-dur' },
+		{ name: 'anime-name-2', dur: 'anime-dur' },
+		{ name: 'anime-name-3', dur: 'anime-dur' },
+		{ name: 'anime-name-4', dur: 'anime-dur' }
+	]);
+$('.selector1').animista.chain(
+	[
+		{ name: 'anime-name-1', dur: 'anime-dur' },
+		{ name: 'anime-name-2', dur: 'anime-dur' },
+		{ name: 'anime-name-3', dur: 'anime-dur' },
+		{ name: 'anime-name-4', dur: 'anime-dur' }
+	]);
+
+/**########################
+ * 			OR
+ #########################*/
+
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).then({ name: 'anime-name' });
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).then('.selector2', { name: 'anime-name' });
+$.animista(
+	{
+		'.selector1': { name: 'anime-name', dur: 'anime-dur' }
+	}).then('.selector2', { name: 'anime-name' });
+
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).then(
+	{
+		'.selector2': { name: 'anime-name' }
+	});
+
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).then(
+	{
+		'.selector2': { click: { name: 'anime-name' } }
+	});
+
+/**########################
+ * 			OR
+ #########################*/
+
+$('.selector1').animista.on('mouseenter', { name: 'anime-name', dur: 'anime-dur' }); // not in and out
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).success((e) => console.log('done!'));
+$('.selector1').animista.click({ name: 'anime-name', dur: 'anime-dur' }).success((e) => console.log('done!'));
+$('.selector1').animista.click({ name: 'anime-name', dur: 'anime-dur' }).error((e) => console.log('error!'));
+$('.selector1').animista.click({ name: 'anime-name', dur: 'anime-dur' }).success((e) => console.log('done!')).error((e) => console.log('error!'));
+// ---------------- OR -----------------------
+$('.selector1').animista.click(
+	{
+		name: 'anime-name',
+		dur: 'anime-dur',
+		success: (e) => console.log('done!'),
+		error: (e) => console.log('error!')
+	});
+$('.selector1').animista({ click:
+	{
+		name: 'anime-name',
+		dur: 'anime-dur',
+		success: (e) => console.log('done!'),
+		error: (e) => console.log('error!')
+	}
+});
+
+/**########################
+ * 			OR
+ #########################*/
+
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).state('run');
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).state('pause');
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).state('start');
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).state('end');
+$('.selector1').animista({ name: 'anime-name', dur: 'anime-dur' }).state('stop');
+
+
+$('.selector1').animista('anime-name').dur(1).dly(0.4).cubic(1,0,0,1); // ....attrs();
+$('.selector1').animista('anime-name').dur(1).dly(0.4).steps(5, 'end');
+$('.selector1').animista('anime-name').dur(1).dly(0.4).func('ease-in');
+$('.selector1').animista('anime-name').dur(1).dly(0.4).func('cubic', [0,1,1,0]);
+$('.selector1').animista('anime-name').dur(1).dly(0.4).func('steps', [3,'end']);
+
+$('.selector1').animista.name('anime-name').dur('very-slow'); // ...attrs();

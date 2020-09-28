@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<meta charset="utf-8" />
+		<link type="image/x-icon" rel="shortcut icon" href="./icon.png" />
+		<link type="text/css" rel="stylesheet" href="./assets/style.css" />
+		<link type="text/css" rel="stylesheet" href="./assets/animista.css" />
+		<link type="text/css" rel="stylesheet" href="./assets/bootstrap.min.css" />
+		<script type="text/javascript" src="./assets/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="./assets/animista.1.0.0.js"></script>
+		<title> CSSANIMISTA - jQuery plugin </title>
+		<style type="text/css">
+			.row {
+				margin-top: 9px;
+			}
+			.container {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+			}
+			.animista {
+				position: relative;
+				display: flex;
+				margin-left: 9px;
+				min-width: 95px; min-height: 95px;
+				background-color: #dfdfdf;
+				flex-direction: row; flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				align-content: center;
+				overflow: hidden;
+			}
+			.front, .back {
+				position: absolute;
+				display: inline-block;
+				min-width: 90px; min-height: 90px;
+				border: 3px solid whitesmoke;
+				border-radius: 3rem;
+				transition: 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			}
+			.front {
+				background-color: #963;
+			}
+			.back {
+				background-color: #369;
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(() => {
+				let randList = [
+								{ name: 'shake-top', dur: 1 },
+								{ name: 'shake-bottom', dur: 1 },
+								{ name: 'shake-left', dur: 1 },
+								{ name: 'shake-right', dur: 1 },
+								{ name: 'bounce-top', dur: 1 },
+								{ name: 'bounce-bottom', dur: 1 },
+								{ name: 'bounce-left', dur: 1 },
+								{ name: 'bounce-right', dur: 1 },
+								{ name: 'vibrate-1', dur: 1 },
+								{ name: 'vibrate-2', dur: 1 },
+								{ name: 'vibrate-3', dur: 1 },
+								{ name: 'fade-in', dur: 1 },
+								{ name: 'fade-in-top', dur: 1 },
+								{ name: 'fade-in-bottom', dur: 1 },
+								{ name: 'fade-in-left', dur: 1 },
+								{ name: 'fade-in-right', dur: 1 },
+								{ name: 'jelly-h', dur: 1 },
+								{ name: 'jelly-v', dur: 1 },
+								{ name: 'slide-in-top', dur: 1 },
+								{ name: 'slide-in-bottom', dur: 1 },
+								{ name: 'slide-in-left', dur: 1 },
+								{ name: 'slide-in-right', dur: 1 },
+								{ name: 'swirl-in-fwd', dur: 1 },
+								{ name: 'swirl-in-bck', dur: 1 },
+								{ name: 'name', dur: 1 }
+							];
+				$.animista({
+					'span': { chain: randList.sort((a,b) => a-b ) }
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+				<div class="col-3 animista">
+					<span class="front"></span>
+					<span class="back"></span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
